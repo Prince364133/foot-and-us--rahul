@@ -1,0 +1,71 @@
+/* ==========================================================================
+   Food&Us — Design Tokens
+   Direction: "Royal kitchen" — deep wine & charcoal grounds, brushed antique
+   gold ornament, saffron as the single warm spark. Cinzel carries the
+   ceremonial weight of the brand; Cormorant Garamond italic is the whisper
+   of a handwritten menu card; Jost stays quiet and does the reading work.
+   ========================================================================== */
+
+:root {
+  /* Color — grounds */
+  --color-charcoal:      #16100D;   /* deepest ground, footer, nav on scroll */
+  --color-wine:          #3B0A1F;   /* primary rich ground */
+  --color-wine-deep:     #2A0716;   /* shadow variant of wine */
+  --color-ivory:         #F8F1E1;   /* light ground / reversed text */
+  --color-ivory-dim:     #EFE4CC;   /* subtle panels on light ground */
+
+  /* Color — accents */
+  --color-gold:          #C9A24B;   /* primary ornament / rule / CTA */
+  --color-gold-bright:   #E4C577;   /* hover / foil highlight */
+  --color-gold-dim:      #8A6E32;   /* recessed gold, borders on light bg */
+  --color-saffron:       #D9752E;   /* single warm spark — tags, hovers */
+  --color-basil:         #45573F;   /* rare cool counter-note, veg tags */
+
+  /* Text */
+  --text-on-dark:        #F5EBD8;
+  --text-on-dark-dim:    rgba(245, 235, 216, 0.68);
+  --text-on-light:       #241712;
+  --text-on-light-dim:   rgba(36, 23, 18, 0.62);
+
+  /* Type families */
+  --font-display: 'Cinzel', 'Times New Roman', serif;
+  --font-script:  'Cormorant Garamond', 'Georgia', serif;
+  --font-body:    'Jost', 'Segoe UI', sans-serif;
+
+  /* Type scale */
+  --fs-hero:      clamp(2.6rem, 6vw, 5.2rem);
+  --fs-h1:        clamp(2.1rem, 4.2vw, 3.4rem);
+  --fs-h2:        clamp(1.6rem, 3vw, 2.4rem);
+  --fs-h3:        clamp(1.2rem, 2vw, 1.5rem);
+  --fs-body-lg:   1.15rem;
+  --fs-body:      1rem;
+  --fs-small:     0.85rem;
+  --fs-eyebrow:   0.78rem;
+
+  /* Spacing (8pt-ish rhythm) */
+  --space-3xs: 0.25rem;
+  --space-2xs: 0.5rem;
+  --space-xs:  0.75rem;
+  --space-sm:  1rem;
+  --space-md:  1.5rem;
+  --space-lg:  2.5rem;
+  --space-xl:  4rem;
+  --space-2xl: 6rem;
+  --space-3xl: 9rem;
+
+  /* Layout */
+  --container-max: 1240px;
+  --container-pad: clamp(1.25rem, 4vw, 3rem);
+  --radius-sm: 6px;
+  --radius-md: 14px;
+  --radius-plate: 50%;
+
+  /* Motion */
+  --ease-silk: cubic-bezier(0.22, 1, 0.36, 1);
+  --dur-fast: 220ms;
+  --dur-med: 480ms;
+
+  /* Elevation */
+  --shadow-card: 0 18px 40px -18px rgba(22, 16, 13, 0.45);
+  --shadow-gold-glow: 0 0 0 1px rgba(201, 162, 75, 0.35);
+}

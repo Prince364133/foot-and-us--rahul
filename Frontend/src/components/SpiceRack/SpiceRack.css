@@ -1,0 +1,226 @@
+/* ==========================================================================
+   Spice Rack Section Styling
+   ========================================================================== */
+
+.spice-rack {
+  background: var(--color-ivory, #F8F1E1);
+  padding: var(--space-2xl, 6rem) 0;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Headings & Typography */
+.spice-rack__head {
+  max-width: 640px;
+  margin: 0 auto var(--space-xl, 4rem);
+  text-align: center;
+}
+
+.spice-rack__head .eyebrow {
+  font-family: var(--font-body, 'Jost', sans-serif);
+  font-size: var(--fs-eyebrow, 0.78rem);
+  text-transform: uppercase;
+  letter-spacing: 0.25em;
+  color: var(--color-saffron, #D9752E);
+  font-weight: 600;
+  display: block;
+}
+
+.spice-rack__title {
+  margin-top: var(--space-2xs, 0.5rem);
+  font-family: var(--font-display, 'Cinzel', serif);
+  font-size: var(--fs-h1, 3rem);
+  color: var(--text-on-light, #241712);
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  line-height: 1.15;
+}
+
+.spice-rack__copy {
+  margin-top: var(--space-xs, 0.75rem);
+  font-family: var(--font-body, 'Jost', sans-serif);
+  color: var(--text-on-light-dim, rgba(36, 23, 18, 0.62));
+  font-weight: 400;
+  font-size: var(--fs-body-lg, 1.15rem);
+  line-height: 1.6;
+}
+
+/* Grid Layout */
+.spice-rack__grid {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: var(--space-md, 1.5rem);
+  align-items: start;
+}
+
+/* Spice Item Base */
+.spice {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-xs, 0.85rem);
+  opacity: 0;
+  animation: spice-in 700ms var(--ease-silk, cubic-bezier(0.22, 1, 0.36, 1)) forwards;
+  animation-delay: calc(var(--i) * 90ms);
+}
+
+@keyframes spice-in {
+  from {
+    opacity: 0;
+    transform: translateY(20px) scale(0.96);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+/* Jar Styling */
+.spice__jar {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 1;
+  border-radius: var(--radius-plate, 50%);
+  cursor: pointer;
+}
+
+/* Circular Jar Image Container */
+.spice__jar-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  border-radius: var(--radius-plate, 50%);
+  overflow: hidden;
+  background-color: var(--color-ivory-dim, #EFE4CC);
+  /* Soft layered ambient shadow */
+  box-shadow: 
+    0 12px 28px -8px rgba(36, 23, 18, 0.12),
+    0 0 0 1px rgba(201, 162, 75, 0.25);
+  transition: transform var(--dur-med, 480ms) var(--ease-silk),
+              box-shadow var(--dur-med, 480ms) var(--ease-silk);
+}
+
+.spice__jar-inner img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform var(--dur-med, 480ms) var(--ease-silk),
+              filter var(--dur-med, 480ms) var(--ease-silk);
+}
+
+/* Glass Reflective Glare */
+.spice__glare {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.45) 0%, rgba(255, 255, 255, 0) 55%);
+  pointer-events: none;
+  border-radius: var(--radius-plate, 50%);
+}
+
+/* Lid - Soft Brushed Gold */
+.spice__lid {
+  position: absolute;
+  top: -6px;
+  left: 50%;
+  width: 38%;
+  height: 14%;
+  transform: translateX(-50%);
+  background: linear-gradient(180deg, #E4C577 0%, #C9A24B 100%);
+  border-radius: var(--radius-sm, 6px);
+  z-index: 4;
+  box-shadow: 
+    0 4px 10px rgba(36, 23, 18, 0.15), 
+    inset 0 1px 1px rgba(255, 255, 255, 0.7);
+  transition: transform var(--dur-med, 480ms) var(--ease-silk);
+}
+
+/* Soft Hover Overlay Note */
+.spice__note {
+  position: absolute;
+  inset: 0;
+  z-index: 5;
+  border-radius: var(--radius-plate, 50%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 16%;
+  text-align: center;
+  
+  /* Soft Cream & Warm Gold Background */
+  background: rgba(248, 241, 225, 0.94);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  box-shadow: inset 0 0 0 1px var(--color-gold, #C9A24B);
+  
+  opacity: 0;
+  transform: scale(0.85);
+  transition: opacity var(--dur-med, 480ms) var(--ease-silk),
+              transform var(--dur-med, 480ms) var(--ease-silk);
+}
+
+.spice__note p {
+  font-family: var(--font-script, 'Cormorant Garamond', serif);
+  font-style: italic;
+  font-size: clamp(0.82rem, 1.1vw, 0.98rem);
+  line-height: 1.35;
+  color: var(--color-wine, #3B0A1F);
+  font-weight: 600;
+}
+
+/* Interactive Hover States */
+.spice__jar:hover .spice__jar-inner {
+  transform: translateY(-4px) scale(1.04);
+  /* Glow color based on spice with a soft golden ring */
+  box-shadow: 
+    0 18px 36px -6px var(--glow-color, rgba(201, 162, 75, 0.3)),
+    0 0 0 2px var(--color-gold, #C9A24B);
+}
+
+.spice__jar:hover .spice__jar-inner img {
+  transform: scale(1.1);
+  filter: blur(2px) brightness(0.95);
+}
+
+.spice__jar:hover .spice__lid {
+  transform: translateX(-50%) translateY(-6px) rotate(4deg);
+}
+
+.spice__jar:hover .spice__note {
+  opacity: 1;
+  transform: scale(1);
+}
+
+/* Spice Name Styling */
+.spice__name {
+  font-family: var(--font-body, 'Jost', sans-serif);
+  font-size: var(--fs-eyebrow, 0.8rem);
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--color-gold-dim, #8A6E32);
+  transition: color var(--dur-fast, 220ms) ease, transform var(--dur-fast, 220ms) ease;
+}
+
+.spice:hover .spice__name {
+  color: var(--color-saffron, #D9752E);
+  transform: translateY(-2px);
+}
+
+/* Responsive Styles */
+@media (max-width: 1024px) {
+  .spice-rack__grid {
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--space-lg, 2.5rem) var(--space-md, 1.5rem);
+  }
+}
+
+@media (max-width: 580px) {
+  .spice-rack__grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--space-md, 1.5rem) 1rem;
+  }
+
+  .spice__note p {
+    font-size: 0.8rem;
+  }
+}

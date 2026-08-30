@@ -1,0 +1,246 @@
+/* ==========================================================================
+   Header Styling — Royal & Glassmorphic Aesthetic
+   ========================================================================== */
+
+.site-header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  background: linear-gradient(180deg, rgba(22, 16, 13, 0.75) 0%, rgba(22, 16, 13, 0) 100%);
+  transition: all var(--dur-med, 480ms) var(--ease-silk, cubic-bezier(0.22, 1, 0.36, 1));
+  padding: 0.2rem 0;
+}
+
+/* Scrolled Floating State */
+.site-header--scrolled {
+  background: rgba(22, 16, 13, 0.88);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  box-shadow: 
+    0 10px 30px -10px rgba(0, 0, 0, 0.5),
+    0 1px 0 0 rgba(201, 162, 75, 0.2);
+}
+
+.site-header__bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 84px;
+  transition: height var(--dur-med) var(--ease-silk);
+}
+
+.site-header--scrolled .site-header__bar {
+  height: 72px;
+}
+
+/* Brand & Logo */
+.site-header__brand {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-xs, 0.75rem);
+  text-decoration: none;
+  position: relative;
+  z-index: 1002;
+}
+
+.site-header__brand-mark {
+  color: var(--color-gold-bright, #E4C577);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform var(--dur-med) var(--ease-silk), filter var(--dur-fast) ease;
+}
+
+.site-header__brand:hover .site-header__brand-mark {
+  transform: rotate(15deg) scale(1.08);
+  filter: drop-shadow(0 0 6px rgba(228, 197, 119, 0.4));
+}
+
+.site-header__brand-text {
+  font-family: var(--font-display, 'Cinzel', serif);
+  font-size: 1.35rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  color: var(--text-on-dark, #F5EBD8);
+  transition: color var(--dur-fast) ease;
+}
+
+.site-header__brand-amp {
+  color: var(--color-saffron, #D9752E);
+  font-family: var(--font-script, 'Cormorant Garamond', serif);
+  font-style: italic;
+  margin: 0 1px;
+}
+
+/* Navigation Links */
+.site-header__nav ul {
+  display: flex;
+  align-items: center;
+  gap: var(--space-xl, 3rem);
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.site-header__link {
+  position: relative;
+  font-family: var(--font-body, 'Jost', sans-serif);
+  font-size: var(--fs-eyebrow, 0.8rem);
+  font-weight: 500;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--text-on-dark-dim, rgba(245, 235, 216, 0.72));
+  padding: 8px 2px;
+  text-decoration: none;
+  transition: color var(--dur-fast) var(--ease-silk);
+}
+
+/* Expanding Gold Leaf Underline Effect */
+.site-header__link::after {
+  content: '';
+  position: absolute;
+  left: 50%;
+  bottom: 0;
+  width: 0%;
+  height: 1.5px;
+  background: linear-gradient(90deg, transparent, var(--color-gold-bright, #E4C577), transparent);
+  transform: translateX(-50%);
+  transition: width var(--dur-med) var(--ease-silk);
+  box-shadow: 0 0 8px var(--color-gold, #C9A24B);
+}
+
+.site-header__link:hover,
+.site-header__link--active {
+  color: var(--color-gold-bright, #E4C577);
+}
+
+.site-header__link:hover::after,
+.site-header__link--active::after {
+  width: 100%;
+}
+
+/* Header Actions & CTA Button */
+.site-header__actions {
+  display: flex;
+  align-items: center;
+  gap: var(--space-md, 1.5rem);
+  z-index: 1002;
+}
+
+.btn-header-cta {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.55em 1.4em;
+  border: 1px solid var(--color-gold, #C9A24B);
+  border-radius: var(--radius-sm, 6px);
+  background: rgba(201, 162, 75, 0.08);
+  color: var(--color-gold-bright, #E4C577);
+  font-family: var(--font-body, 'Jost', sans-serif);
+  font-size: var(--fs-eyebrow, 0.78rem);
+  font-weight: 600;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  text-decoration: none;
+  transition: all var(--dur-fast) ease;
+}
+
+.btn-header-cta:hover {
+  background: var(--color-gold, #C9A24B);
+  color: var(--color-charcoal, #16100D);
+  box-shadow: 0 4px 15px rgba(201, 162, 75, 0.3);
+  transform: translateY(-1px);
+}
+
+.site-header__mobile-cta {
+  display: none;
+}
+
+/* Hamburger Toggle Icon */
+.site-header__toggle {
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 6px;
+  width: 38px;
+  height: 38px;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+}
+
+.site-header__toggle span {
+  display: block;
+  width: 24px;
+  height: 1.5px;
+  background: var(--color-gold-bright, #E4C577);
+  transition: transform var(--dur-fast) var(--ease-silk), opacity var(--dur-fast) ease;
+  transform-origin: center;
+}
+
+.site-header__toggle--open span:nth-child(1) {
+  transform: translateY(7.5px) rotate(45deg);
+}
+
+.site-header__toggle--open span:nth-child(2) {
+  opacity: 0;
+}
+
+.site-header__toggle--open span:nth-child(3) {
+  transform: translateY(-7.5px) rotate(-45deg);
+}
+
+/* Responsive Mobile Navigation Overlay */
+@media (max-width: 860px) {
+  .desktop-only {
+    display: none;
+  }
+
+  .site-header__toggle {
+    display: flex;
+  }
+
+  .site-header__nav {
+    position: fixed;
+    inset: 0;
+    background: rgba(22, 16, 13, 0.96);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: var(--space-2xl, 3rem);
+    padding: var(--space-xl);
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-10px);
+    transition: all var(--dur-med) var(--ease-silk);
+    z-index: 1001;
+  }
+
+  .site-header__nav--open {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+  }
+
+  .site-header__nav ul {
+    flex-direction: column;
+    align-items: center;
+    gap: var(--space-lg, 2rem);
+  }
+
+  .site-header__link {
+    font-size: 1.2rem;
+    letter-spacing: 0.25em;
+  }
+
+  .site-header__mobile-cta {
+    display: block;
+    margin-top: 1rem;
+  }
+}

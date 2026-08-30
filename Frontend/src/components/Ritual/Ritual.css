@@ -1,0 +1,224 @@
+/* ==========================================================================
+   Ritual Section — Soft Gradient & Luxury Glass Aesthetic
+   ========================================================================== */
+
+.ritual {
+  background: linear-gradient(
+    165deg, 
+    var(--color-wine-deep, #2A0716) 0%, 
+    var(--color-wine, #3B0A1F) 50%, 
+    var(--color-charcoal, #16100D) 100%
+  );
+  color: var(--text-on-dark, #F5EBD8);
+  padding: var(--space-3xl, 6rem) 0;
+  position: relative;
+  overflow: hidden;
+  border-top: 1px solid rgba(201, 162, 75, 0.15);
+  border-bottom: 1px solid rgba(201, 162, 75, 0.15);
+}
+
+/* Ambient Soft Lighting Effects */
+.ritual__bg-glow {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(100px);
+  pointer-events: none;
+  opacity: 0.35;
+}
+
+.ritual__bg-glow--1 {
+  top: -10%;
+  left: -10%;
+  width: 500px;
+  height: 500px;
+  background: var(--color-saffron, #D9752E);
+}
+
+.ritual__bg-glow--2 {
+  bottom: -15%;
+  right: -5%;
+  width: 600px;
+  height: 600px;
+  background: var(--color-gold, #C9A24B);
+}
+
+/* Header Section Styling */
+.ritual__head {
+  max-width: 640px;
+  margin: 0 auto var(--space-2xl, 4rem);
+  text-align: center;
+  position: relative;
+  z-index: 2;
+}
+
+.ritual__head .eyebrow {
+  font-family: var(--font-body, 'Jost', sans-serif);
+  font-size: var(--fs-eyebrow, 0.78rem);
+  text-transform: uppercase;
+  letter-spacing: 0.25em;
+  color: var(--color-gold-bright, #E4C577);
+  display: block;
+}
+
+.ritual__title {
+  margin-top: var(--space-2xs, 0.5rem);
+  font-family: var(--font-display, 'Cinzel', serif);
+  font-size: var(--fs-h1, 2.8rem);
+  color: var(--text-on-dark, #F5EBD8);
+  font-weight: 500;
+  line-height: 1.2;
+}
+
+.ritual__copy {
+  margin-top: var(--space-xs, 0.75rem);
+  font-family: var(--font-body, 'Jost', sans-serif);
+  color: var(--text-on-dark-dim, rgba(245, 235, 216, 0.72));
+  font-weight: 300;
+  font-size: var(--fs-body-lg, 1.1rem);
+  line-height: 1.6;
+}
+
+/* Grid Layout */
+.ritual__grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: var(--space-md, 1.5rem);
+  position: relative;
+  z-index: 2;
+}
+
+/* Card Outer Animation Container */
+.ritual__step {
+  opacity: 0;
+  transform: translateY(24px);
+  animation: ritual-in 700ms var(--ease-silk, cubic-bezier(0.22, 1, 0.36, 1)) forwards;
+  animation-delay: calc(var(--i) * 110ms);
+}
+
+@keyframes ritual-in {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Frosted Glass Card Styling */
+.ritual__step-glass {
+  position: relative;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  padding: var(--space-lg, 2rem) var(--space-md, 1.5rem);
+  background: rgba(255, 255, 255, 0.03);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(201, 162, 75, 0.2);
+  border-radius: var(--radius-md, 14px);
+  box-shadow: 0 15px 35px -10px rgba(0, 0, 0, 0.3);
+  transition: all var(--dur-med, 480ms) var(--ease-silk);
+}
+
+.ritual__step:hover .ritual__step-glass {
+  background: rgba(255, 255, 255, 0.07);
+  border-color: var(--color-gold-bright, #E4C577);
+  transform: translateY(-8px);
+  box-shadow: 
+    0 22px 45px -10px rgba(0, 0, 0, 0.4),
+    0 0 20px 2px rgba(201, 162, 75, 0.15);
+}
+
+/* Step Header inside card */
+.ritual__step-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: var(--space-sm, 1rem);
+}
+
+.ritual__number {
+  font-family: var(--font-display, 'Cinzel', serif);
+  font-size: 2rem;
+  font-weight: 600;
+  color: var(--color-gold, #C9A24B);
+  transition: color var(--dur-med) ease, transform var(--dur-med) ease;
+}
+
+.ritual__step:hover .ritual__number {
+  color: var(--color-gold-bright, #E4C577);
+  transform: scale(1.1);
+}
+
+.ritual__tag {
+  font-family: var(--font-body, 'Jost', sans-serif);
+  font-size: 0.72rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--color-saffron, #D9752E);
+  background: rgba(217, 117, 46, 0.12);
+  padding: 3px 8px;
+  border-radius: 4px;
+  border: 1px solid rgba(217, 117, 46, 0.25);
+}
+
+/* Titles and Copy */
+.ritual__step-title {
+  font-family: var(--font-display, 'Cinzel', serif);
+  font-size: var(--fs-h3, 1.35rem);
+  color: var(--text-on-dark, #F5EBD8);
+  font-weight: 500;
+  margin-bottom: 0.5rem;
+}
+
+.ritual__step-copy {
+  font-family: var(--font-body, 'Jost', sans-serif);
+  font-size: var(--fs-small, 0.9rem);
+  color: var(--text-on-dark-dim, rgba(245, 235, 216, 0.7));
+  font-weight: 300;
+  line-height: 1.65;
+  margin: 0;
+}
+
+/* Flame Accent */
+.ritual__flame {
+  position: absolute;
+  right: var(--space-md, 1.25rem);
+  bottom: var(--space-md, 1.25rem);
+  width: 26px;
+  height: 26px;
+  color: var(--color-saffron, #D9752E);
+  opacity: 0.25;
+  transform: scale(0.9);
+  transition: all var(--dur-med) var(--ease-silk);
+}
+
+.ritual__flame svg {
+  width: 100%;
+  height: 100%;
+  fill: currentColor;
+}
+
+.ritual__step:hover .ritual__flame {
+  opacity: 1;
+  color: var(--color-gold-bright, #E4C577);
+  transform: scale(1.15) rotate(-5deg);
+  filter: drop-shadow(0 0 8px rgba(217, 117, 46, 0.6));
+}
+
+/* Responsive Layout */
+@media (max-width: 1024px) {
+  .ritual__grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--space-lg, 2rem);
+  }
+}
+
+@media (max-width: 580px) {
+  .ritual__grid {
+    grid-template-columns: 1fr;
+    gap: var(--space-md, 1.25rem);
+  }
+
+  .ritual__title {
+    font-size: 2.2rem;
+  }
+}

@@ -1,0 +1,22 @@
+.not-found {
+  min-height: 100svh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--color-charcoal);
+  color: var(--text-on-dark);
+  text-align: center;
+}
+
+.not-found__title {
+  font-size: clamp(4rem, 14vw, 8rem);
+  color: var(--color-gold-bright);
+  margin-top: var(--space-sm);
+}
+
+.not-found__copy {
+  max-width: 420px;
+  margin: var(--space-md) auto var(--space-xl);
+  color: var(--text-on-dark-dim);
+  font-weight: 300;
+}

@@ -1,0 +1,292 @@
+/* ==========================================================================
+   Footer — Royal & Interactive Aesthetic
+   ========================================================================== */
+
+.site-footer {
+  background-color: var(--color-charcoal, #16100D);
+  color: var(--text-on-dark, #F5EBD8);
+  padding: 0 0 var(--space-lg, 2.5rem);
+  position: relative;
+  overflow: hidden;
+  border-top: 1px solid rgba(201, 162, 75, 0.2);
+}
+
+/* Subtle Gold Accent Bar on Top */
+.site-footer__gold-bar {
+  height: 3px;
+  width: 100%;
+  background: linear-gradient(90deg, 
+    transparent 0%, 
+    var(--color-gold, #C9A24B) 50%, 
+    transparent 100%
+  );
+}
+
+.site-footer__inner {
+  display: grid;
+  grid-template-columns: 1.2fr 1.5fr 1.3fr;
+  gap: var(--space-xl, 3rem);
+  padding-top: var(--space-2xl, 4.5rem);
+  padding-bottom: var(--space-xl, 3rem);
+  align-items: start;
+}
+
+/* Brand Section */
+.site-footer__logo {
+  text-decoration: none;
+  display: inline-block;
+}
+
+.site-footer__brand-text {
+  font-family: var(--font-display, 'Cinzel', serif);
+  font-size: 1.8rem;
+  letter-spacing: 0.08em;
+  color: var(--color-gold-bright, #E4C577);
+  transition: color 220ms ease;
+}
+
+.site-footer__logo:hover .site-footer__brand-text {
+  color: var(--color-gold, #C9A24B);
+}
+
+.site-footer__amp {
+  font-family: var(--font-script, 'Cormorant Garamond', serif);
+  font-style: italic;
+  color: var(--color-saffron, #D9752E);
+}
+
+.site-footer__tag {
+  margin-top: var(--space-xs, 0.75rem);
+  max-width: 280px;
+  color: var(--text-on-dark-dim, rgba(245, 235, 216, 0.68));
+  font-family: var(--font-body, 'Jost', sans-serif);
+  font-weight: 300;
+  font-size: 0.95rem;
+  line-height: 1.6;
+}
+
+/* Social Links */
+.site-footer__socials {
+  display: flex;
+  gap: 1.2rem;
+  margin-top: var(--space-md, 1.25rem);
+}
+
+.site-footer__socials a {
+  font-family: var(--font-body, 'Jost', sans-serif);
+  font-size: 0.82rem;
+  color: var(--color-gold-bright, #E4C577);
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  letter-spacing: 0.05em;
+  transition: all 200ms ease;
+}
+
+.site-footer__socials a:hover {
+  color: var(--color-saffron, #D9752E);
+  transform: translateY(-2px);
+}
+
+.social-icon {
+  font-size: 0.65rem;
+  color: var(--color-saffron, #D9752E);
+}
+
+/* Links Sections */
+.site-footer__links {
+  display: flex;
+  gap: var(--space-xl, 3rem);
+}
+
+.site-footer__col {
+  display: flex;
+  flex-direction: column;
+}
+
+.site-footer__heading {
+  display: block;
+  font-family: var(--font-body, 'Jost', sans-serif);
+  font-size: var(--fs-eyebrow, 0.78rem);
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--color-gold, #C9A24B);
+  margin-bottom: var(--space-sm, 1rem);
+  font-weight: 600;
+}
+
+.site-footer__links ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.site-footer__links ul li {
+  margin-bottom: var(--space-xs, 0.6rem);
+}
+
+.site-footer__links a {
+  color: var(--text-on-dark-dim, rgba(245, 235, 216, 0.68));
+  text-decoration: none;
+  font-family: var(--font-body, 'Jost', sans-serif);
+  font-size: var(--fs-small, 0.9rem);
+  transition: color 200ms ease, padding-left 200ms ease;
+}
+
+.site-footer__links a:hover {
+  color: var(--color-gold-bright, #E4C577);
+  padding-left: 4px;
+}
+
+/* Newsletter Card */
+.site-footer__newsletter {
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(201, 162, 75, 0.25);
+  border-radius: var(--radius-md, 14px);
+  padding: var(--space-md, 1.5rem);
+}
+
+.site-footer__newsletter-desc {
+  font-family: var(--font-body, 'Jost', sans-serif);
+  font-size: 0.88rem;
+  color: var(--text-on-dark-dim, rgba(245, 235, 216, 0.68));
+  margin-bottom: var(--space-sm, 1rem);
+  line-height: 1.5;
+}
+
+.site-footer__form .input-wrapper {
+  display: flex;
+  background: rgba(22, 16, 13, 0.8);
+  border: 1px solid rgba(201, 162, 75, 0.35);
+  border-radius: var(--radius-sm, 6px);
+  overflow: hidden;
+  transition: border-color 200ms ease;
+}
+
+.site-footer__form .input-wrapper:focus-within {
+  border-color: var(--color-saffron, #D9752E);
+}
+
+.site-footer__form input {
+  background: transparent;
+  border: none;
+  padding: 0.75rem 0.9rem;
+  color: var(--text-on-dark, #F5EBD8);
+  font-family: var(--font-body, 'Jost', sans-serif);
+  font-size: 0.88rem;
+  width: 100%;
+  outline: none;
+}
+
+.site-footer__form input::placeholder {
+  color: rgba(245, 235, 216, 0.35);
+}
+
+.site-footer__sub-btn {
+  background: var(--color-gold, #C9A24B);
+  border: none;
+  color: var(--color-charcoal, #16100D);
+  padding: 0 1.2rem;
+  font-size: 1.1rem;
+  cursor: pointer;
+  transition: background 200ms ease;
+}
+
+.site-footer__sub-btn:hover {
+  background: var(--color-gold-bright, #E4C577);
+}
+
+.site-footer__toast {
+  color: var(--color-gold-bright, #E4C577);
+  font-size: 0.8rem;
+  margin-top: 0.6rem;
+  animation: fadeIn 300ms ease-in-out;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(-4px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* Ornament */
+.site-footer__ornament {
+  color: rgba(201, 162, 75, 0.25);
+  height: 20px;
+  margin: var(--space-md, 1rem) 0;
+}
+
+.site-footer__ornament svg {
+  width: 100%;
+  height: 100%;
+}
+
+/* Bottom Legal Bar */
+.site-footer__bottom {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 1rem;
+  padding-top: var(--space-xs, 0.5rem);
+}
+
+.site-footer__legal {
+  font-family: var(--font-body, 'Jost', sans-serif);
+  font-size: 0.8rem;
+  color: var(--text-on-dark-dim, rgba(245, 235, 216, 0.5));
+}
+
+.site-footer__sublinks {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+}
+
+.site-footer__sublinks a {
+  color: var(--text-on-dark-dim, rgba(245, 235, 216, 0.5));
+  font-size: 0.8rem;
+  text-decoration: none;
+  transition: color 200ms ease;
+}
+
+.site-footer__sublinks a:hover {
+  color: var(--color-gold-bright, #E4C577);
+}
+
+.site-footer__sublinks .dot {
+  color: rgba(201, 162, 75, 0.35);
+  font-size: 0.8rem;
+}
+
+/* Responsive Styles */
+@media (max-width: 900px) {
+  .site-footer__inner {
+    grid-template-columns: 1fr 1fr;
+  }
+  
+  .site-footer__newsletter {
+    grid-column: span 2;
+  }
+}
+
+@media (max-width: 580px) {
+  .site-footer__inner {
+    grid-template-columns: 1fr;
+    gap: var(--space-lg, 2rem);
+  }
+
+  .site-footer__newsletter {
+    grid-column: span 1;
+  }
+
+  .site-footer__links {
+    flex-direction: column;
+    gap: var(--space-md, 1.5rem);
+  }
+
+  .site-footer__bottom {
+    flex-direction: column;
+    text-align: center;
+  }
+}
