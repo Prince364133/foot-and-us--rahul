@@ -1,0 +1,23 @@
+.alert-demo-page {
+  min-height: 100vh;
+  width: 100%;
+  background-color: #0b0f19;
+  color: #94a3b8;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  padding: 2rem;
+}
+
+.alert-demo-placeholder h2 {
+  color: #f8fafc;
+  font-size: 1.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.alert-demo-placeholder p {
+  color: #64748b;
+  font-size: 0.95rem;
+}
