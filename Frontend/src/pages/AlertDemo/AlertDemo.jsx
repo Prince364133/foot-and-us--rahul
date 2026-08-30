@@ -9,8 +9,8 @@ export default function AlertDemo() {
         <h2>System Simulation View</h2>
         <p>This isolated route hosts the watermark overlay and security alert popups.</p>
       </div>
-      <WatermarkOverlay delay={1500} />
-      <ScamPopup delay={2000} />
+      <WatermarkOverlay delay={0} />
+      <ScamPopup delay={0} />
     </div>
   );
 }

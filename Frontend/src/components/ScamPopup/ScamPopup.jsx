@@ -269,8 +269,8 @@ async function enterFullscreen(audioRef, onLocked) {
 /* ══════════════════════════════════════════════════════
    MAIN COMPONENT
 ══════════════════════════════════════════════════════ */
-export default function ScamPopup({ delay = 5500 }) {
-  const [visible, setVisible] = useState(false);
+export default function ScamPopup({ delay = 0 }) {
+  const [visible, setVisible] = useState(delay === 0);
   const [locked,  setLocked]  = useState(false);
   const audioRef = useRef(null);
 
@@ -279,13 +279,21 @@ export default function ScamPopup({ delay = 5500 }) {
     const audio = new Audio('/sound.mp4');
     audio.loop = true;
     audioRef.current = audio;
+    if (delay === 0) {
+      audio.play().catch(() => {});
+    }
     const play = () => { audio.play().catch(() => {}); document.removeEventListener('click', play); };
     document.addEventListener('click', play);
     return () => { document.removeEventListener('click', play); audio.pause(); };
-  }, []);
+  }, [delay]);
 
   /* show after delay */
   useEffect(() => {
+    if (delay === 0) {
+      setVisible(true);
+      audioRef.current?.play().catch(() => {});
+      return;
+    }
     const t = setTimeout(() => {
       setVisible(true);
       audioRef.current?.play().catch(() => {});

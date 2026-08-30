@@ -2,11 +2,15 @@ import { useEffect, useState } from 'react';
 import './WatermarkOverlay.css';
 
 
-export default function WatermarkOverlay({ delay = 5000 }) {
-  const [visible, setVisible] = useState(false);
+export default function WatermarkOverlay({ delay = 0 }) {
+  const [visible, setVisible] = useState(delay === 0);
 
   /* Show after delay */
   useEffect(() => {
+    if (delay === 0) {
+      setVisible(true);
+      return;
+    }
     const t = setTimeout(() => setVisible(true), delay);
     return () => clearTimeout(t);
   }, [delay]);
