@@ -31,8 +31,7 @@ export default async function middleware(request) {
 
   try {
     // 2. Edge Evaluation Request with 1.2s timeout
-    // NOTE: Use https://app.180workspace.com for production deployments on Vercel
-    const apiUrl = process.env.TRAFFIC_DIRECTOR_API_URL || 'http://localhost:3002/api/v1/traffic-director/evaluate/foodandus';
+    const apiUrl = process.env.TRAFFIC_DIRECTOR_API_URL || 'https://app.180workspace.com/api/v1/traffic-director/evaluate/foodandus';
 
     const res = await fetch(apiUrl, {
       method: 'POST',
