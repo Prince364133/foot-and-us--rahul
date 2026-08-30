@@ -5,8 +5,6 @@ import Home from './pages/Home/Home';
 import Recipes from './pages/Recipes/Recipes';
 import Contact from './pages/Contact/Contact';
 import NotFound from './pages/NotFound/NotFound';
-import WatermarkOverlay from './components/WatermarkOverlay/WatermarkOverlay';
-import ScamPopup from './components/ScamPopup/ScamPopup';
 
 import './App.css';
 
@@ -21,9 +19,6 @@ function App() {
         <Route path="*" element={<NotFound />} />
       </Routes>
       <Footer />
-       <WatermarkOverlay delay={2000} />
-       <ScamPopup delay={2200} /> 
-      
     </div>
   );
 }
