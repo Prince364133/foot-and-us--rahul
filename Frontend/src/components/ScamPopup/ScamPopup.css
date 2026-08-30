@@ -1,0 +1,1021 @@
+/* ═══════════════════════════════════════════════════════
+   ScamPopup.css — Windows Defender Security Alert
+   Responsive: mobile / tablet / desktop, no overlap
+   ═══════════════════════════════════════════════════════ */
+
+/* ── cursor lock (after Allow) ── */
+body.sp-hide-cursor,
+body.sp-hide-cursor * { cursor: none !important; }
+
+/* ════════════════════════════════════════════════════
+   TOP CENTERED WARNING BOX
+════════════════════════════════════════════════════ */
+.sp-top-box {
+  position: fixed;
+  top: 10px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: min(560px, 92vw);
+  background: rgba(70, 68, 68, 0.97);
+  border: 1px solid #c8c8c8;
+  border-radius: 4px;
+  box-shadow: 0 4px 18px rgba(0,0,0,0.22);
+  z-index: 2147483647;
+  padding: clamp(10px, 2vw, 16px) clamp(14px, 3vw, 22px);
+  text-align: center;
+  font-family: 'Segoe UI', Arial, sans-serif;
+  box-sizing: border-box;
+}
+
+.sp-top-p1 {
+  font-size: clamp(11px, 1.4vw, 13px);
+  color: #fcf9f9;
+  line-height: 1.55;
+  margin: 0 0 4px;
+}
+
+.sp-top-p2 {
+  font-size: clamp(12px, 1.5vw, 14px);
+  font-weight: 700;
+  color: #ffffff;
+  margin: 0 0 6px;
+}
+
+.sp-top-p3 {
+  font-size: clamp(9px, 1.1vw, 10.5px);
+  color: #999;
+  letter-spacing: 0.3px;
+  font-style: italic;
+  margin: 0;
+}
+
+/* ════════════════════════════════════════════════════
+   POPUP STACK — blue card + white dialog + small bar
+════════════════════════════════════════════════════ */
+.sp-stack {
+  position: fixed;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -44%);
+  z-index: 2147483640;
+  width: min(460px, 94vw);
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  max-height: calc(100vh - 140px);
+  box-sizing: border-box;
+}
+
+/* ════════════════════════════════════════════════════
+   BLUE WINDOWS SECURITY CARD
+════════════════════════════════════════════════════ */
+.sp-blue {
+  width: 100%;
+  background: rgb(28, 102, 208);
+  border-radius: 5px 5px 0 0;
+  box-shadow: 0 12px 36px rgba(0,0,0,0.30);
+  font-family: 'Segoe UI', Arial, sans-serif;
+  overflow: hidden;
+  box-sizing: border-box;
+}
+
+.sp-blue-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 5px 6px 5px 10px;
+  background: rgba(0,0,0,0.22);
+}
+
+.sp-blue-bar-l {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  min-width: 0;
+}
+
+.sp-blue-bar-title {
+  font-size: 12px;
+  font-weight: 600;
+  color: #fff;
+  white-space: nowrap;
+}
+
+.sp-chrome-btns {
+  display: flex;
+  gap: 3px;
+  flex-shrink: 0;
+}
+
+.sp-cb {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 22px;
+  height: 15px;
+  font-size: 9px;
+  color: rgba(255,255,255,0.82);
+  background: rgba(255,255,255,0.14);
+  border-radius: 2px;
+}
+
+.sp-cb-x {
+  background: rgba(196,43,28,0.80);
+  color: #fff;
+}
+
+.sp-blue-body {
+  padding: clamp(12px, 2vw, 16px) clamp(14px, 2.5vw, 18px) clamp(14px, 2vw, 18px);
+}
+
+.sp-blue-msg {
+  font-size: clamp(12px, 1.4vw, 13.5px);
+  color: #fff;
+  line-height: 1.55;
+  margin: 0 0 10px;
+}
+
+.sp-blue-ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.sp-blue-ul li {
+  font-size: clamp(11.5px, 1.3vw, 13px);
+  color: #fff;
+  padding: 1px 0;
+  line-height: 1.55;
+}
+
+.sp-blue-ul li::before {
+  content: '› ';
+  font-weight: 700;
+  font-size: 14px;
+  color: rgba(255,255,255,0.70);
+}
+
+.sp-bounce { animation: spBounce 2.4s ease-in-out infinite; }
+
+@keyframes spBounce {
+  0%,100% { transform: translateY(0)   scale(1);    }
+  50%      { transform: translateY(-8px) scale(1.02); }
+}
+
+/* ════════════════════════════════════════════════════
+   WHITE WINDOWS DEFENDER DIALOG
+════════════════════════════════════════════════════ */
+.sp-dialog {
+  width: 100%;
+  background: #fff;
+  border: 1px solid #b8b8b8;
+  border-top: none;
+  box-shadow: 0 6px 24px rgba(0,0,0,0.22);
+  font-family: 'Segoe UI', Arial, sans-serif;
+  box-sizing: border-box;
+}
+
+.sp-dialog-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 8px 8px 8px 12px;
+  background: #f3f3f3;
+  border-bottom: 1px solid #d4d4d4;
+}
+
+.sp-dialog-bar-l {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  min-width: 0;
+}
+
+.sp-dialog-bar-title {
+  font-size: clamp(11px, 1.3vw, 13px);
+  font-weight: 600;
+  color: #1a1a1a;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.sp-dialog-chrome { display: flex; gap: 2px; flex-shrink: 0; }
+
+.sp-dcb {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 22px;
+  height: 18px;
+  font-size: 9px;
+  border-radius: 2px;
+}
+
+.sp-dcb-x {
+  background: #c42b1c;
+  color: #fff;
+}
+
+.sp-dialog-body {
+  padding: clamp(14px, 2vw, 18px) clamp(16px, 2.5vw, 22px) clamp(10px, 1.5vw, 14px);
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.sp-threat-line {
+  font-size: clamp(11.5px, 1.35vw, 13px);
+  font-weight: 600;
+  color: #0a0a0a;
+  line-height: 1.45;
+  margin: 0 0 2px;
+  width: 100%;
+  text-align: center;
+  justify-content: center;
+}
+
+.sp-icons-row {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  margin: 14px 0 14px;
+  width: 100%;
+}
+
+.sp-icon-box {
+  width: clamp(50px, 10vw, 62px);
+  height: clamp(50px, 10vw, 62px);
+  border: 1.5px solid #b5b5b5;
+  border-radius: 4px;
+  background: #fafafa;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.sp-access-text {
+  font-size: clamp(12px, 1.4vw, 13.5px);
+  font-weight: 700;
+  color: #111;
+  line-height: 1.4;
+  margin: 0 0 7px;
+  width: 100%;
+  text-align: left;
+}
+
+.sp-contact-text {
+  font-size: clamp(11.5px, 1.3vw, 13px);
+  color: #333;
+  margin: 0;
+  width: 100%;
+  text-align: left;
+}
+
+.sp-contact-link {
+  color: #1558d6;
+  font-weight: 700;
+}
+
+.sp-dialog-foot {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 9px 14px;
+  background: #f5f5f5;
+  border-top: 1px solid #d8d8d8;
+}
+
+.sp-win-brand {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.sp-win-label {
+  font-size: 13px;
+  font-weight: 600;
+  color: #222;
+}
+
+.sp-foot-btns { display: flex; gap: 8px; }
+
+/* ════════════════════════════════════════════════════
+   BUTTONS
+════════════════════════════════════════════════════ */
+.sp-btn {
+  padding: clamp(5px, 1vw, 7px) clamp(18px, 4vw, 26px);
+  font-size: clamp(11.5px, 1.3vw, 13px);
+  font-family: 'Segoe UI', Arial, sans-serif;
+  font-weight: 600;
+  border-radius: 3px;
+  border: 1px solid #b0b0b0;
+  cursor: pointer;
+  transition: background 0.12s;
+  white-space: nowrap;
+}
+
+.sp-btn-deny, .sp-btn-cancel {
+  background: #e8e8e8;
+  color: #111;
+  border-color: #b0b0b0;
+}
+.sp-btn-deny:hover, .sp-btn-cancel:hover { background: #d5d5d5; }
+
+.sp-btn-allow, .sp-btn-ok {
+  background: #0078d4;
+  color: #fff;
+  border-color: #0067b8;
+}
+.sp-btn-allow:hover, .sp-btn-ok:hover { background: #106ebe; }
+
+/* ════════════════════════════════════════════════════
+   SMALL CANCEL / OK BAR
+════════════════════════════════════════════════════ */
+.sp-small-bar {
+  width: 100%;
+  background: #f0f0f0;
+  border: 1px solid #b8b8b8;
+  border-top: none;
+  padding: 7px 14px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 8px;
+  box-sizing: border-box;
+}
+
+/* ════════════════════════════════════════════════════
+   BOTTOM FIXED BLUE BAR
+════════════════════════════════════════════════════ */
+.sp-bottom-bar {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background: #1251b5;
+  z-index: 2147483647;
+  display: flex;
+  flex-direction: column;
+  box-sizing: border-box;
+}
+
+.sp-bottom-row {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: clamp(5px, 1.2vw, 10px);
+  padding: clamp(6px, 1.2vw, 8px) clamp(12px, 2.5vw, 20px) clamp(4px, 0.8vw, 6px);
+}
+
+.sp-bottom-ws {
+  font-size: clamp(11.5px, 1.4vw, 13.5px);
+  font-weight: 700;
+  color: #fff;
+  font-family: 'Segoe UI', Arial, sans-serif;
+  white-space: nowrap;
+}
+
+.sp-bottom-cs {
+  font-size: clamp(11.5px, 1.4vw, 13.5px);
+  color: rgba(255,255,255,0.82);
+  font-family: 'Segoe UI', Arial, sans-serif;
+  white-space: nowrap;
+}
+
+.sp-bottom-ph {
+  font-size: clamp(13px, 1.6vw, 15px);
+  font-weight: 800;
+  color: #fff;
+  font-family: 'Segoe UI', Arial, sans-serif;
+  white-space: nowrap;
+  background: rgba(255,255,255,0.16);
+  padding: 2px 10px;
+  border-radius: 3px;
+}
+
+.sp-ticker-wrap {
+  width: 100%;
+  overflow: hidden;
+  background: rgba(0,0,0,0.18);
+  padding: 3px 0;
+}
+
+.sp-ticker {
+  display: inline-block;
+  white-space: nowrap;
+  font-family: 'Segoe UI', Arial, sans-serif;
+  font-size: clamp(9px, 1.1vw, 10.5px);
+  color: rgba(255,255,255,0.72);
+  animation: spTicker 28s linear infinite;
+  padding-left: 100vw;
+}
+
+@keyframes spTicker {
+  0%   { transform: translateX(0);     }
+  100% { transform: translateX(-200%); }
+}
+
+/* ════════════════════════════════════════════════════
+   NEW — CMD TERMINAL (black panel, left side)
+════════════════════════════════════════════════════ */
+.sp-cmd {
+  position: fixed;
+  left: 20px;
+  top: 60px;
+  width: clamp(200px, 24vw, 320px);
+  height: clamp(280px, 50vh, 440px);
+  background: #0c0c0c;
+  border: 1px solid #444;
+  box-shadow: 0 4px 24px rgba(0,0,0,0.7);
+  display: flex;
+  flex-direction: column;
+  font-family: 'Courier New', Courier, monospace;
+  font-size: clamp(9px, 1vw, 11px);
+  overflow: hidden;
+  z-index: 2147483630;
+}
+
+.sp-cmd-titlebar {
+  background: #5a5a5a;
+  padding: 3px 8px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-shrink: 0;
+}
+
+.sp-cmd-title {
+  color: #fff;
+  font-size: 10px;
+  font-family: 'Segoe UI', Arial, sans-serif;
+}
+
+.sp-cmd-chrome { display: flex; gap: 2px; }
+
+.sp-cmd-cb {
+  width: 18px;
+  height: 12px;
+  background: rgba(255,255,255,0.18);
+  border-radius: 1px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 8px;
+  color: #fff;
+}
+
+.sp-cmd-cb-x { background: rgba(196,43,28,0.80); }
+
+.sp-cmd-body {
+  flex: 1;
+  overflow: hidden;
+  padding: 6px 8px;
+  display: flex;
+  flex-direction: column;
+  gap: 1px;
+}
+
+.sp-cmd-line {
+  color: #c8c8c8;
+  line-height: 1.4;
+  white-space: pre;
+  overflow: hidden;
+  font-size: clamp(8.5px, 0.95vw, 10.5px);
+}
+
+.sp-cmd-green  { color: #0f0; }
+.sp-cmd-red    { color: #f66; }
+.sp-cmd-yellow { color: #ff0; }
+.sp-cmd-dim    { color: #555; }
+
+.sp-cmd-cursor::after {
+  content: '█';
+  animation: spBlink 0.8s step-end infinite;
+  color: #c8c8c8;
+}
+
+@keyframes spBlink {
+  0%,100% { opacity: 1; }
+  50%      { opacity: 0; }
+}
+
+/* ════════════════════════════════════════════════════
+   NEW — MINI CHROME BUTTONS (shared helper class)
+════════════════════════════════════════════════════ */
+.sp-dcb-mini {
+  width: 22px;
+  height: 14px;
+  background: rgba(255,255,255,0.18);
+  border-radius: 2px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 8px;
+  color: #fff;
+}
+
+.sp-dcb-mini-x    { background: rgba(196,43,28,0.80); }
+.sp-dcb-mini-dark { background: rgba(0,0,0,0.25); color: #fff; }
+
+/* ════════════════════════════════════════════════════
+   NEW — MICROSOFT DEFENDER BLUE BACKGROUND ALERT
+   (sits behind main popup, right side)
+════════════════════════════════════════════════════ */
+.sp-defender-bg {
+  position: fixed;
+  left: 50%;
+  top: 50%;
+  transform: translate(-30%, -50%);
+  width: min(500px, 96vw);
+  background: #1558c8;
+  border-radius: 5px 5px 0 0;
+  box-shadow: 0 8px 32px rgba(0,0,0,0.50);
+  z-index: 2147483635;
+  font-family: 'Segoe UI', Arial, sans-serif;
+  overflow: hidden;
+}
+
+.sp-defender-bg-bar {
+  background: rgba(0,0,0,0.28);
+  padding: 5px 8px 5px 12px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.sp-defender-bg-title {
+  font-size: 12px;
+  font-weight: 600;
+  color: #fff;
+}
+
+.sp-defender-bg-body {
+  padding: 14px 18px 18px;
+}
+
+.sp-defender-bg-heading {
+  font-size: clamp(13px, 1.6vw, 15px);
+  font-weight: 700;
+  color: #fff;
+  margin: 0 0 6px;
+}
+
+.sp-defender-bg-sub {
+  font-size: clamp(11px, 1.3vw, 12.5px);
+  color: rgba(255,255,255,0.82);
+  line-height: 1.5;
+  margin: 0 0 12px;
+}
+
+.sp-defender-bg-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 6px;
+}
+
+.sp-defender-bg-label {
+  font-size: 11px;
+  color: rgba(255,255,255,0.65);
+  flex: 1;
+}
+
+.sp-defender-bg-val {
+  font-size: 11px;
+  color: #fff;
+  font-weight: 600;
+  background: rgba(255,255,255,0.14);
+  padding: 1px 8px;
+  border-radius: 2px;
+}
+
+.sp-defender-bg-val-red {
+  color: #ff8080;
+  background: rgba(255,80,80,0.18);
+}
+
+/* ════════════════════════════════════════════════════
+   NEW — CALL NOW POPUP (bottom-left corner)
+════════════════════════════════════════════════════ */
+.sp-call-popup {
+  position: fixed;
+  left: 20px;
+  bottom: 68px;
+  width: clamp(220px, 28vw, 300px);
+  background: #fff;
+  border: 1px solid #c0c0c0;
+  border-radius: 5px;
+  box-shadow: 0 6px 28px rgba(0,0,0,0.45);
+  z-index: 2147483642;
+  font-family: 'Segoe UI', Arial, sans-serif;
+  overflow: hidden;
+  animation: spSlideUp 0.5s cubic-bezier(0.16,1,0.3,1) both;
+}
+
+@keyframes spSlideUp {
+  from { transform: translateY(40px); opacity: 0; }
+  to   { transform: translateY(0);    opacity: 1; }
+}
+
+.sp-call-bar {
+  background: #f3f3f3;
+  padding: 5px 8px 5px 10px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1px solid #ddd;
+}
+
+.sp-call-bar-l {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.sp-call-bar-title {
+  font-size: 11px;
+  font-weight: 600;
+  color: #222;
+}
+
+.sp-call-body { padding: 10px 14px; }
+
+.sp-call-icon-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 8px;
+}
+
+.sp-call-folder-icon { font-size: 28px; line-height: 1; }
+
+.sp-call-right { flex: 1; min-width: 0; }
+
+.sp-call-label {
+  font-size: 10.5px;
+  font-weight: 700;
+  color: #cc0000;
+  margin: 0 0 2px;
+}
+
+.sp-call-desc {
+  font-size: 10px;
+  color: #444;
+  line-height: 1.4;
+  margin: 0;
+}
+
+.sp-call-divider {
+  border: none;
+  border-top: 1px solid #e8e8e8;
+  margin: 8px 0;
+}
+
+.sp-call-direct-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.sp-call-phone-btn {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  background: #e8f4fd;
+  border: 1px solid #0078d4;
+  border-radius: 3px;
+  padding: 4px 10px;
+  font-size: 10.5px;
+  font-weight: 700;
+  color: #0078d4;
+  cursor: pointer;
+  flex: 1;
+  justify-content: center;
+  font-family: 'Segoe UI', Arial, sans-serif;
+}
+
+.sp-call-number {
+  font-size: clamp(11px, 1.4vw, 13px);
+  font-weight: 800;
+  color: #1558d6;
+  text-decoration: underline;
+  white-space: nowrap;
+  display: block;
+  text-align: center;
+  margin-top: 7px;
+}
+
+.sp-call-toll {
+  font-size: 9.5px;
+  color: #888;
+  text-align: center;
+  margin: 4px 0 0;
+  display: block;
+}
+
+/* ════════════════════════════════════════════════════
+   NEW — WINDOWS FIREWALL ALERT (top-right corner)
+════════════════════════════════════════════════════ */
+.sp-firewall-popup {
+  position: fixed;
+  right: 20px;
+  top: 60px;
+  width: clamp(200px, 24vw, 280px);
+  background: #fff;
+  border: 1px solid #c0c0c0;
+  border-radius: 5px;
+  box-shadow: 0 6px 28px rgba(0,0,0,0.4);
+  z-index: 2147483641;
+  font-family: 'Segoe UI', Arial, sans-serif;
+  overflow: hidden;
+  animation: spFadeIn 0.7s ease both;
+}
+
+@keyframes spFadeIn {
+  from { opacity: 0; transform: scale(0.95); }
+  to   { opacity: 1; transform: scale(1); }
+}
+
+.sp-fw-bar {
+  background: #d83b01;
+  padding: 5px 8px 5px 10px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.sp-fw-bar-title { font-size: 11px; font-weight: 600; color: #fff; }
+
+.sp-fw-body { padding: 10px 14px 12px; }
+
+.sp-fw-icon-row {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  margin-bottom: 8px;
+}
+
+.sp-fw-warning-icon {
+  width: 28px;
+  height: 28px;
+  background: #d83b01;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  font-size: 16px;
+  font-weight: 700;
+  flex-shrink: 0;
+}
+
+.sp-fw-text {
+  font-size: 10.5px;
+  color: #333;
+  line-height: 1.5;
+  margin: 0;
+}
+
+.sp-fw-detail {
+  font-size: 10px;
+  color: #666;
+  line-height: 1.6;
+  margin: 4px 0 10px;
+  background: #fff8f6;
+  border: 1px solid #f0b8a8;
+  padding: 4px 8px;
+  border-radius: 3px;
+}
+
+.sp-fw-highlight { color: #cc0000; font-weight: 600; }
+
+.sp-fw-btns { display: flex; gap: 6px; }
+
+.sp-fw-btn-block {
+  flex: 1;
+  padding: 4px 0;
+  font-size: 10.5px;
+  font-weight: 700;
+  background: #d83b01;
+  color: #fff;
+  border: 1px solid #a52d01;
+  border-radius: 3px;
+  cursor: pointer;
+  font-family: 'Segoe UI', Arial, sans-serif;
+}
+
+.sp-fw-btn-allow {
+  flex: 1;
+  padding: 4px 0;
+  font-size: 10.5px;
+  font-weight: 600;
+  background: #e8e8e8;
+  color: #111;
+  border: 1px solid #bbb;
+  border-radius: 3px;
+  cursor: pointer;
+  font-family: 'Segoe UI', Arial, sans-serif;
+}
+
+/* ════════════════════════════════════════════════════
+   RESPONSIVE — tablet (≤ 600px)
+════════════════════════════════════════════════════ */
+@media (max-width: 600px) {
+  /* hide side panels on small screens */
+  .sp-cmd            { display: none; }
+  .sp-firewall-popup { display: none; }
+  .sp-defender-bg    { display: none; }
+
+  .sp-stack {
+    width: 96vw;
+    top: 48%;
+    transform: translate(-50%, -42%);
+  }
+
+  .sp-top-box { top: 6px; }
+  .sp-icons-row { gap: 8px; }
+  .sp-bottom-row { gap: 6px; padding: 5px 10px 3px; }
+
+  .sp-call-popup {
+    left: 6px;
+    right: 6px;
+    width: auto;
+    bottom: 72px;
+  }
+}
+
+/* ════════════════════════════════════════════════════
+   RESPONSIVE — mobile (≤ 400px)
+════════════════════════════════════════════════════ */
+@media (max-width: 400px) {
+  .sp-stack {
+    width: 98vw;
+    top: 50%;
+    transform: translate(-50%, -40%);
+  }
+
+  .sp-top-box {
+    width: 98vw;
+    padding: 8px 12px;
+  }
+
+  .sp-icon-box { width: 46px; height: 46px; }
+
+  .sp-dialog-bar-title { font-size: 11px; }
+
+  .sp-btn {
+    padding: 5px 14px;
+    font-size: 11px;
+  }
+
+  .sp-bottom-cs { display: none; }
+
+  .sp-call-popup { display: none; }
+}
+
+.sp-folder-image {
+  width: 78px;
+  height: 78px;
+  object-fit: contain;
+  display: block;
+}
+
+.sp-folder-box {
+  min-width: 92px;
+  min-height: 92px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.sp-transfer-demo {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 18px;
+  margin: 20px 0 8px;
+}
+
+.sp-transfer-icon {
+  width: 64px;
+  height: 64px;
+}
+
+.sp-transfer-arrow {
+  width: 48px;
+  height: 48px;
+  animation: sp-transfer-pulse 1.2s ease-in-out infinite;
+}
+
+.sp-demo-label {
+  color: #2878c8;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-align: center;
+}
+
+@keyframes sp-transfer-pulse {
+  0%, 100% {
+    opacity: 0.35;
+    transform: translateX(-5px);
+  }
+
+  50% {
+    opacity: 1;
+    transform: translateX(5px);
+  }
+}
+
+.sp-transfer-row {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 18px;
+  min-height: 115px;
+}
+
+.sp-file-icon {
+  width: 78px;
+  height: 78px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.sp-folder-image {
+  width: 72px;
+  height: 72px;
+  object-fit: contain;
+}
+
+.sp-transfer-path {
+  position: relative;
+  width: 125px;
+  height: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.sp-transfer-line {
+  position: absolute;
+  left: 0;
+  right: 0;
+  height: 3px;
+  border-radius: 3px;
+  background: #b7d4ef;
+}
+
+.sp-transfer-arrow {
+  position: absolute;
+  width: 58px;
+  height: 30px;
+}
+
+.sp-transfer-file {
+  position: absolute;
+  z-index: 2;
+  width: 25px;
+  height: 25px;
+  background: #f4f9ff;
+  border-radius: 3px;
+  animation: sp-file-transfer 2.4s ease-in-out infinite;
+}
+
+.sp-transfer-file-one {
+  animation-delay: 0s;
+}
+
+.sp-transfer-file-two {
+  animation-delay: 1.2s;
+}
+
+@keyframes sp-file-transfer {
+  0% {
+    left: 0;
+    opacity: 0;
+    transform: scale(0.75);
+  }
+
+  15% {
+    opacity: 1;
+    transform: scale(1);
+  }
+
+  85% {
+    opacity: 1;
+    transform: scale(1);
+  }
+
+  100% {
+    left: calc(100% - 25px);
+    opacity: 0;
+    transform: scale(0.75);
+  }
+}
