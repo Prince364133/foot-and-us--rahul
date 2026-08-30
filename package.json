@@ -1,0 +1,9 @@
+{
+  "name": "foodandus",
+  "private": true,
+  "version": "1.0.0",
+  "scripts": {
+    "build": "npm --prefix Frontend run build",
+    "vercel-build": "npm --prefix Frontend install && npm --prefix Frontend run build"
+  }
+}
